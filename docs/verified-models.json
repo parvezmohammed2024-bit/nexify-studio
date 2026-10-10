@@ -1,0 +1,537 @@
+[
+  {
+    "name": "Marketing Studio \u00b7 Image",
+    "provider_model_id": "marketing-studio/image",
+    "endpoint": "marketing-studio/image",
+    "operation": "text-to-image",
+    "aspect_ratios": ["auto"],
+    "resolutions": ["1k"],
+    "durations": [],
+    "audio": false,
+    "required_fields": [
+      "prompt",
+      "quality",
+      "resolution",
+      "aspect_ratio",
+      "enhance_prompt"
+    ],
+    "optional_fields": ["moderation"],
+    "input_schema": {
+      "type": "object",
+      "title": "Marketing Studio Image",
+      "required": [
+        "prompt",
+        "quality",
+        "resolution",
+        "aspect_ratio",
+        "enhance_prompt"
+      ],
+      "properties": {
+        "prompt": {
+          "type": "string",
+          "title": "Prompt",
+          "maxLength": 5000,
+          "minLength": 1,
+          "description": "Write your prompt here"
+        },
+        "quality": {
+          "type": "string",
+          "const": "low"
+        },
+        "moderation": {
+          "type": "string",
+          "const": "auto"
+        },
+        "resolution": {
+          "type": "string",
+          "const": "1k"
+        },
+        "aspect_ratio": {
+          "type": "string",
+          "const": "auto"
+        },
+        "enhance_prompt": {
+          "type": "boolean",
+          "const": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "field_map": {
+      "prompt": "prompt",
+      "aspect_ratio": "aspect_ratio",
+      "resolution": "resolution"
+    },
+    "defaults": {
+      "quality": "low",
+      "enhance_prompt": false,
+      "moderation": "auto"
+    },
+    "pricing": {
+      "basis": "per-output",
+      "rates_micros": {
+        "1k": 16200
+      },
+      "kind": "approximate",
+      "verified_at": "2026-10-09T12:57:02.464001Z",
+      "source": "https://open.higgsfield.ai/pricing",
+      "maximum_multiplier": 1
+    },
+    "verification_status": "verified",
+    "available": true,
+    "verification_source": "https://open.higgsfield.ai/models/marketing-studio/image/api-reference",
+    "verified_at": "2026-10-09T12:57:02.464001Z"
+  },
+  {
+    "name": "Marketing Studio \u00b7 Image editing",
+    "provider_model_id": "marketing-studio/image",
+    "endpoint": "marketing-studio/image",
+    "operation": "image-edit",
+    "aspect_ratios": ["auto"],
+    "resolutions": ["1k"],
+    "durations": [],
+    "audio": false,
+    "required_fields": [
+      "prompt",
+      "quality",
+      "resolution",
+      "aspect_ratio",
+      "enhance_prompt",
+      "image_urls"
+    ],
+    "optional_fields": ["moderation"],
+    "input_schema": {
+      "type": "object",
+      "title": "Marketing Studio Image",
+      "required": [
+        "prompt",
+        "quality",
+        "resolution",
+        "aspect_ratio",
+        "enhance_prompt",
+        "image_urls"
+      ],
+      "properties": {
+        "prompt": {
+          "type": "string",
+          "title": "Prompt",
+          "maxLength": 5000,
+          "minLength": 1,
+          "description": "Write your prompt here"
+        },
+        "quality": {
+          "type": "string",
+          "const": "low"
+        },
+        "image_urls": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "title": "Image URLs",
+          "maxItems": 16,
+          "minItems": 1
+        },
+        "moderation": {
+          "type": "string",
+          "const": "auto"
+        },
+        "resolution": {
+          "type": "string",
+          "const": "1k"
+        },
+        "aspect_ratio": {
+          "type": "string",
+          "const": "auto"
+        },
+        "enhance_prompt": {
+          "type": "boolean",
+          "const": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "field_map": {
+      "prompt": "prompt",
+      "aspect_ratio": "aspect_ratio",
+      "resolution": "resolution",
+      "asset_urls": "image_urls",
+      "asset_encoding": "url_array"
+    },
+    "defaults": {
+      "quality": "low",
+      "enhance_prompt": false,
+      "moderation": "auto"
+    },
+    "pricing": {
+      "basis": "per-output",
+      "rates_micros": {
+        "1k": 16200
+      },
+      "kind": "approximate",
+      "verified_at": "2026-10-09T12:57:02.464001Z",
+      "source": "https://open.higgsfield.ai/pricing",
+      "maximum_multiplier": 1
+    },
+    "verification_status": "verified",
+    "available": true,
+    "verification_source": "https://open.higgsfield.ai/models/marketing-studio/image/api-reference",
+    "verified_at": "2026-10-09T12:57:02.464001Z"
+  },
+  {
+    "name": "Wan 3.0 Prime \u00b7 B-roll",
+    "provider_model_id": "alibaba/wan-3.0-prime/text-to-video",
+    "endpoint": "alibaba/wan-3.0-prime/text-to-video",
+    "operation": "text-to-video",
+    "aspect_ratios": ["adaptive"],
+    "resolutions": ["480p"],
+    "durations": [2],
+    "audio": true,
+    "required_fields": ["prompt"],
+    "optional_fields": [
+      "seed",
+      "duration",
+      "resolution",
+      "aspect_ratio",
+      "generate_audio",
+      "enable_thinking"
+    ],
+    "input_schema": {
+      "type": "object",
+      "title": "Wan 3.0 Prime Text to Video",
+      "required": ["prompt"],
+      "properties": {
+        "seed": {
+          "type": "integer",
+          "title": "Seed",
+          "maximum": 2147483647,
+          "minimum": 0
+        },
+        "prompt": {
+          "type": "string",
+          "title": "Prompt",
+          "description": "Write your prompt here"
+        },
+        "duration": {
+          "type": "integer",
+          "const": 2
+        },
+        "resolution": {
+          "type": "string",
+          "const": "480p"
+        },
+        "aspect_ratio": {
+          "type": "string",
+          "const": "adaptive"
+        },
+        "generate_audio": {
+          "type": "boolean",
+          "const": true
+        },
+        "enable_thinking": {
+          "type": "boolean",
+          "const": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "field_map": {
+      "prompt": "prompt",
+      "aspect_ratio": "aspect_ratio",
+      "resolution": "resolution",
+      "duration": "duration",
+      "audio": "generate_audio",
+      "seed": "seed"
+    },
+    "defaults": {
+      "generate_audio": true,
+      "enable_thinking": false
+    },
+    "pricing": {
+      "basis": "per-second",
+      "rates_micros": {
+        "480p": 68000
+      },
+      "kind": "approximate",
+      "verified_at": "2026-10-09T12:57:02.464001Z",
+      "source": "https://open.higgsfield.ai/pricing",
+      "maximum_multiplier": 1
+    },
+    "verification_status": "verified",
+    "available": true,
+    "verification_source": "https://open.higgsfield.ai/models/alibaba/wan-3.0-prime/text-to-video/api-reference",
+    "verified_at": "2026-10-09T12:57:02.464001Z"
+  },
+  {
+    "name": "Wan 3.0 Prime \u00b7 Image animation",
+    "provider_model_id": "alibaba/wan-3.0-prime/image-to-video",
+    "endpoint": "alibaba/wan-3.0-prime/image-to-video",
+    "operation": "image-to-video",
+    "aspect_ratios": ["adaptive"],
+    "resolutions": ["480p"],
+    "durations": [2],
+    "audio": true,
+    "required_fields": ["prompt", "image_url"],
+    "optional_fields": [
+      "seed",
+      "duration",
+      "resolution",
+      "aspect_ratio",
+      "generate_audio",
+      "enable_thinking"
+    ],
+    "input_schema": {
+      "type": "object",
+      "title": "Wan 3.0 Prime Image to Video",
+      "required": ["prompt", "image_url"],
+      "properties": {
+        "seed": {
+          "type": "integer",
+          "title": "Seed",
+          "maximum": 2147483647,
+          "minimum": 0
+        },
+        "prompt": {
+          "type": "string",
+          "title": "Prompt",
+          "description": "Write your prompt here"
+        },
+        "duration": {
+          "type": "integer",
+          "const": 2
+        },
+        "image_url": {
+          "type": "string",
+          "title": "First Frame",
+          "format": "uri"
+        },
+        "resolution": {
+          "type": "string",
+          "const": "480p"
+        },
+        "aspect_ratio": {
+          "type": "string",
+          "const": "adaptive"
+        },
+        "generate_audio": {
+          "type": "boolean",
+          "const": true
+        },
+        "enable_thinking": {
+          "type": "boolean",
+          "const": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "field_map": {
+      "prompt": "prompt",
+      "aspect_ratio": "aspect_ratio",
+      "resolution": "resolution",
+      "duration": "duration",
+      "audio": "generate_audio",
+      "seed": "seed",
+      "asset_urls": "image_url",
+      "asset_encoding": "single_url"
+    },
+    "defaults": {
+      "generate_audio": true,
+      "enable_thinking": false
+    },
+    "pricing": {
+      "basis": "per-second",
+      "rates_micros": {
+        "480p": 68000
+      },
+      "kind": "approximate",
+      "verified_at": "2026-10-09T12:57:02.464001Z",
+      "source": "https://open.higgsfield.ai/pricing",
+      "maximum_multiplier": 1
+    },
+    "verification_status": "verified",
+    "available": true,
+    "verification_source": "https://open.higgsfield.ai/models/alibaba/wan-3.0-prime/image-to-video/api-reference",
+    "verified_at": "2026-10-09T12:57:02.464001Z"
+  },
+  {
+    "name": "Z-Image Turbo",
+    "provider_model_id": "z-image/turbo",
+    "endpoint": "z-image/turbo",
+    "operation": "text-to-image",
+    "aspect_ratios": [
+      "1:1",
+      "2:3",
+      "3:2",
+      "3:4",
+      "4:3",
+      "7:9",
+      "9:7",
+      "9:16",
+      "16:9",
+      "21:9"
+    ],
+    "resolutions": ["1k", "2k"],
+    "durations": [],
+    "audio": false,
+    "required_fields": ["prompt"],
+    "optional_fields": ["seed", "resolution", "aspect_ratio", "prompt_extend"],
+    "input_schema": {
+      "type": "object",
+      "title": "Z-Image Turbo",
+      "required": ["prompt"],
+      "properties": {
+        "seed": {
+          "type": "integer",
+          "maximum": 2147483647,
+          "minimum": 0,
+          "description": "Optional random seed for similar, reproducible results."
+        },
+        "prompt": {
+          "type": "string",
+          "maxLength": 800,
+          "minLength": 1,
+          "description": "Positive prompt describing the desired content, style, and composition."
+        },
+        "resolution": {
+          "enum": ["1k", "2k"],
+          "type": "string",
+          "default": "1k",
+          "description": "Output resolution tier. Both tiers produce PNG images."
+        },
+        "aspect_ratio": {
+          "enum": [
+            "1:1",
+            "2:3",
+            "3:2",
+            "3:4",
+            "4:3",
+            "7:9",
+            "9:7",
+            "9:16",
+            "16:9",
+            "21:9"
+          ],
+          "type": "string",
+          "default": "1:1",
+          "description": "Output aspect ratio. Exact provider-recommended dimensions are selected automatically."
+        },
+        "prompt_extend": {
+          "type": "boolean",
+          "default": false,
+          "description": "Rewrite and reason over the prompt before generation; this uses the enhanced price tier."
+        }
+      },
+      "additionalProperties": false
+    },
+    "field_map": {
+      "prompt": "prompt",
+      "aspect_ratio": "aspect_ratio",
+      "resolution": "resolution",
+      "seed": "seed"
+    },
+    "defaults": {},
+    "pricing": null,
+    "verification_status": "unverified",
+    "available": false,
+    "verification_source": "https://open.higgsfield.ai/models/z-image/turbo/api-reference",
+    "verified_at": "2026-10-09T12:57:02.464001Z"
+  },
+  {
+    "name": "Soul 2",
+    "provider_model_id": "higgsfield-ai/soul/v2/standard",
+    "endpoint": "higgsfield-ai/soul/v2/standard",
+    "operation": "text-to-image",
+    "aspect_ratios": ["9:16", "16:9", "4:3", "3:4", "1:1", "2:3", "3:2"],
+    "resolutions": ["720p", "1080p"],
+    "durations": [],
+    "audio": false,
+    "required_fields": ["prompt"],
+    "optional_fields": [
+      "seed",
+      "style_id",
+      "batch_size",
+      "resolution",
+      "aspect_ratio",
+      "enhance_prompt",
+      "custom_reference_id",
+      "custom_reference_strength"
+    ],
+    "input_schema": {
+      "type": "object",
+      "title": "Soul V2 Playground",
+      "required": ["prompt"],
+      "properties": {
+        "seed": {
+          "type": "integer",
+          "title": "Seed",
+          "default": null,
+          "maximum": 1000000,
+          "minimum": 1
+        },
+        "prompt": {
+          "type": "string",
+          "title": "Prompt",
+          "description": "Write your prompt here"
+        },
+        "style_id": {
+          "type": "string",
+          "title": "Soul Style",
+          "format": "uuid"
+        },
+        "batch_size": {
+          "enum": [1, 4],
+          "type": "integer",
+          "title": "Result images",
+          "default": 1
+        },
+        "resolution": {
+          "enum": ["720p", "1080p"],
+          "type": "string",
+          "title": "Resolution",
+          "default": "720p"
+        },
+        "aspect_ratio": {
+          "enum": ["9:16", "16:9", "4:3", "3:4", "1:1", "2:3", "3:2"],
+          "type": "string",
+          "title": "Aspect Ratio",
+          "default": "4:3"
+        },
+        "enhance_prompt": {
+          "type": "boolean",
+          "title": "Enhance Prompt",
+          "default": true
+        },
+        "custom_reference_id": {
+          "type": ["string", "null"],
+          "title": "Soul ID",
+          "format": "uuid",
+          "default": null,
+          "description": "ID of a completed Soul ID trained with model_version v2 in your API account. Create one using POST /v1/custom-references."
+        },
+        "custom_reference_strength": {
+          "type": "number",
+          "title": "Soul ID strength",
+          "default": 1.0,
+          "maximum": 1,
+          "minimum": 0,
+          "description": "Strength of the custom reference, from 0 to 1. Used when custom_reference_id is provided."
+        }
+      },
+      "additionalProperties": false
+    },
+    "field_map": {
+      "prompt": "prompt",
+      "aspect_ratio": "aspect_ratio",
+      "resolution": "resolution",
+      "seed": "seed",
+      "outputs": "batch_size"
+    },
+    "defaults": {},
+    "pricing": null,
+    "verification_status": "unverified",
+    "available": false,
+    "verification_source": "https://open.higgsfield.ai/models/higgsfield-ai/soul/v2/standard/api-reference",
+    "verified_at": "2026-10-09T12:57:02.464001Z"
+  }
+]

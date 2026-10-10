@@ -1,0 +1,50 @@
+import type { GenerationInput, Model } from "@/lib/types";
+const now = new Date("2026-10-09T00:00:00Z");
+const model: Model = {
+  id: "11111111-1111-4111-8111-111111111111",
+  name: "TEST FIXTURE ONLY",
+  provider: "higgsfield",
+  provider_model_id: "test-fixture",
+  endpoint: "test-fixture",
+  operation: "text-to-image",
+  aspect_ratios: ["1:1"],
+  resolutions: ["test"],
+  durations: [],
+  audio: false,
+  required_fields: ["prompt"],
+  optional_fields: ["ratio"],
+  input_schema: {
+    type: "object",
+    properties: { prompt: { type: "string" }, ratio: { type: "string" } },
+    required: ["prompt"],
+    additionalProperties: false,
+  },
+  field_map: { prompt: "prompt", aspect_ratio: "ratio" },
+  defaults: {},
+  pricing: {
+    basis: "per-output",
+    rates_micros: { test: 100_000 },
+    kind: "approximate",
+    verified_at: now.toISOString(),
+    source: "https://open.higgsfield.ai/pricing",
+    maximum_multiplier: 2,
+  },
+  verification_status: "verified",
+  verified_at: now.toISOString(),
+  verification_source: "https://open.higgsfield.ai/explore",
+  available: true,
+  updated_at: now.toISOString(),
+};
+const input: GenerationInput = {
+  project_id: "22222222-2222-4222-8222-222222222222",
+  model_id: model.id,
+  operation: "text-to-image",
+  original_prompt: "Test prompt",
+  prompt: "Test prompt",
+  aspect_ratio: "1:1",
+  resolution: "test",
+  outputs: 1,
+  asset_ids: [],
+  advanced: {},
+};
+export { model, input, now };

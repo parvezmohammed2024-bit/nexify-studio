@@ -1,0 +1,29 @@
+node_modules/
+.next/
+.env*
+!.env.example
+coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
+.nexify/
+
+# Local logs, hosting metadata, and credential caches.
+*.log
+.vercel/
+supabase/.temp/
+.aws/
+.npmrc
+
+# Private keys and downloaded service credentials.
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+id_rsa
+id_ed25519
+credentials.json
+credentials-*.json
+service-account*.json
+service_account*.json

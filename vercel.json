@@ -1,0 +1,7 @@
+{
+  "crons": [{ "path": "/api/cron/reconcile", "schedule": "* * * * *" }],
+  "functions": {
+    "src/app/api/cron/reconcile/route.ts": { "maxDuration": 60 },
+    "src/app/api/generations/route.ts": { "maxDuration": 60 }
+  }
+}
