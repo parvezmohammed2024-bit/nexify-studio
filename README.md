@@ -78,6 +78,8 @@ On Vercel, `vercel.json` schedules `/api/cron/reconcile` every minute. **Use a V
 
 ## Deploy to Vercel
 
+Use the [launch checklist](docs/launch-checklist.md) for the first hosted setup, including a single-file SQL export for a fresh Supabase project.
+
 1. Commit and push the reviewed application source, then import this repository, select the Next.js preset, and use the repository root as the project root.
 2. Add the variables from `.env.example` in Vercel environment settings. Keep service-role, Higgsfield, LLM, and cron keys server-only. Configure Preview and Production separately; preview deployments should use a separate Supabase/provider account or disable generation.
 3. Apply migrations to the target Supabase project and provision the initial administrator. Set the production Supabase Auth site URL and disable signup.

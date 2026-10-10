@@ -2,7 +2,7 @@
 
 The default script mode is read-only. It queries only provider request IDs from recent completed database jobs/diagnostics and checks structured application logs. It then performs authenticated GET status lookups and prints only image/video hostnames. It never prints request IDs, customer prompts, raw provider responses, signed URLs, or keys.
 
-The current cloud instance has no Supabase connection or Higgsfield key. Its available application log contains no completed provider request IDs. This does **not** establish that your hosted database is empty. No paid discovery request has been executed.
+Runtime configuration can change between cloud tasks. Run the read-only mode to check the current instance. During the October 10 launch check, Higgsfield estimates worked with the configured cloud proxy, but the hosted studio tables were unavailable and completed database requests could not be inspected. This does **not** establish that your provider account has no completed requests. No paid discovery request has been executed.
 
 ## Try existing completed requests first
 
@@ -30,9 +30,9 @@ Both payloads are checked against the installed verified schemas. Model verifica
 node --env-file-if-exists=.env.local scripts/discover-media-hosts.mjs quote
 ```
 
-This calls the estimate endpoint with the exact generation body, using the `/estimate/<model path>` pattern in the official billing example. Support for these specific model estimates still needs live verification. A missing endpoint, failed estimate, missing USD amount, or unsupported decimal precision stops the workflow. No cached price is substituted. The script prints each exact account-reported USD estimate, the total, the full benign inputs, and an approval reference. It does **not** submit a generation.
+This calls the estimate endpoint with the exact generation body, using the `/estimate/<model path>` pattern in the official billing example. Both model estimate routes were verified against the authenticated account on October 10. A missing endpoint, failed estimate, missing USD amount, or unsupported decimal precision stops the workflow. No cached price is substituted. The script prints each exact account-reported USD estimate, the total, the full benign inputs, and an approval reference. It does **not** submit a generation.
 
-**Do not run `generate` until the user explicitly approves those requests and their displayed estimated total.** An approval reference is a technical safeguard; it does not replace the user's approval in the conversation. Exact account costs could not be obtained in the current instance because its key is absent.
+**Do not run `generate` until the user explicitly approves those requests and their displayed estimated total.** An approval reference is a technical safeguard; it does not replace the user's approval in the conversation. Always obtain a fresh estimate; a previous launch check's prices are not a current quote.
 
 After approval, the operator supplies the displayed reference and approved estimated USD ceiling:
 
